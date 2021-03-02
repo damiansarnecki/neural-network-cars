@@ -1,6 +1,7 @@
 # neural-network-cars
 Machine learning project in which cars learn to beat track using neural networks and genetic algorithms.
-Program is made with MatterJS and p5js 
+
+Program is made with Matter.JS, p5.JS and Chart.JS 
 
 You can check it out on: http://neural-network-cars.ct8.pl/
 
