@@ -1,0 +1,69 @@
+body {
+    font-family: 'Kanit', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    display: grid;
+    grid-template-columns: auto 400px;
+    height: 100vh;
+    text-transform: uppercase;
+}
+
+#main {
+    overflow: scroll;
+}
+
+.menu {
+    background-color: white;
+    position: relative;
+    overflow-y: scroll;
+}
+
+#network {
+    background-color: white;
+    border-bottom: 1px solid gainsboro;
+
+}
+
+main::-webkit-scrollbar {
+    display: none;
+}
+
+.menu::-webkit-scrollbar {
+    display: none;
+}
+
+.single-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 80px;
+    width: 100%;
+    border-bottom: 1px solid gainsboro;
+}
+
+span {
+    font-size: 150%;
+}
+
+.single-data.small {
+    min-height: 40px;
+    font-size: 80%;
+}
+
+.single-data.small span{
+    font-size: 120%;
+}
+span.big{
+    font-size: 200%;
+}
+
+.chartContainer {
+    margin: 10px;
+    margin-top: 30px;
+    height: 300px;
+}
+

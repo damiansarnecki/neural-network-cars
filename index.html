@@ -10,109 +10,54 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
 
-    <style>
-        body {
-            font-family: 'Kanit', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            display: grid;
-            grid-template-columns: auto 400px;
-            height: 100vh;
-            text-transform: uppercase;
-        }
-
-        #main {
-            overflow: scroll;
-        }
-
-        .menu {
-            background-color: white;
-            position: relative;
-            overflow-y: scroll;
-        }
-
-        #network {
-            background-color: white;
-            border-bottom: 1px solid gainsboro;
-
-        }
-
-        main::-webkit-scrollbar {
-        display: none;
-        }
-
-        .menu::-webkit-scrollbar {
-        display: none;
-        }
-
-        .single-data {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            background-color: white;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: 80px;
-            width: 100%;
-            border-bottom: 1px solid gainsboro;
-        }
-        
-        span {
-            font-size: 150%;
-        }
-
-        .single-data.small {
-            min-height: 40px;
-            font-size: 80%;
-        }
-
-        .single-data.small span{
-
-            font-size: 120%;
-        }
-        span.big{
-
-        font-size: 200%;
-        }
-
-        #fitnessPerGenerationChart {
-
-
-
-        }
-
-        .chartContainer {
-            margin: 10px;
-            margin-top: 30px;
-            height: 300px;
-
-        }
-
-
-    </style>
 </head>
 <body>
-    <main id="main">
-
-    </main>
+    <main id="main"></main>
     <div class="menu">
-        <canvas width="400" height="300" id="network">
-
-        </canvas>
-        <div class="single-data"><div>Generation </div><span class="big" id="generationCounter"></span></div>
-        <div class="single-data"><div>Population size: <input type="range" min="1" max="100" value="20" class="slider" onchange="document.getElementById('populationSize').innerHTML= this.value" id="populationSizeSlider"></div> <span id="populationSize">20</span></div>
-        <div class="single-data"><div>Mutation rate: <input type="range" min="1" max="100" value="10" class="slider" onchange="updateMutationRate(this.value)" id="mutationRateSlider"></div> <span id="mutationRate">0.1</span></div>
-        <div class="single-data"><div>Speed: <br><input type="range" min="1" max="5" value="1" class="slider" onchange="updateSpeed(this.value)" id="speedSlider"></div> <span id="speed">1</span></div>
-        <div class="single-data small"><div>Current population</div><span id="currentPopulation"></span></div>
-        <div class="single-data small"><div>Biggest fitness this gen </div><span id="biggestFitnessThisGen"></span></div>
-        <div class="single-data small"><div>Biggest fitness ever </div><span id="biggestFitnessEver"></span></div>
+        <canvas width="400" height="300" id="networkCanvas"></canvas>
+        <div class="single-data">
+            <div>Generation </div>
+            <span class="big" id="generationCounter"></span>
+        </div>
+        <div class="single-data">
+            <div>Population size: <input type="range" min="1" max="100" value="20" class="slider" onchange="updatePopulationSize(this.value)" id="populationSizeSlider"></div>
+            <span id="populationSize">20</span>
+        </div>
+        <div class="single-data">
+            <div>Mutation rate: <input type="range" min="1" max="100" value="10" class="slider" onchange="updateMutationRate(this.value)" id="mutationRateSlider"></div>
+            <span id="mutationRate">0.1</span>
+        </div>
+        <div class="single-data">
+            <div>Speed:<br><input type="range" min="1" max="5" value="1" class="slider" onchange="updateSpeed(this.value)" id="speedSlider"></div>
+            <span id="speed">1</span>
+        </div>
+        <div class="single-data small">
+            <div>Follow fittest car</div>
+            <span><input type="checkbox" id="follow"></span>
+        </div>
+        <div class="single-data small">
+            <div>Current population</div>
+            <span id="currentPopulation"></span>
+        </div>
+        <div class="single-data small">
+            <div>Biggest fitness this gen</div>
+            <span id="biggestFitnessThisGen"></span>
+        </div>
+        <div class="single-data small">
+            <div>Biggest fitness ever </div>
+            <span id="biggestFitnessEver"></span>
+        </div>
         <div class="chartContainer">
-        <canvas id="fitnessPerGenerationChart" ></canvas>
-        <script src="fitnessChart.js"></script>
+            <canvas id="fitnessPerGenerationChart" ></canvas>
+            <script src="fitnessChart.js"></script>
         </div>
     </div>
 </body>
+<script src="defaultConfig.js"></script>
 <script src="sketch.js"></script>
+<script src="Checkpoint.js"></script>
+<script src="Wall.js"></script>
+<script src="Car.js"></script>
 </html>
